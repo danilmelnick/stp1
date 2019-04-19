@@ -1,11 +1,5 @@
-//
-//  MNBCMainViewController.m
-//  Mighty Numeric Base Converter
-//  Created by Mehmet Tugrul Savran and Batuhan Erdogan
-//  Copyright (c) 2013 CuriouScientists. All rights reserved.
-//LET THE GAMES BEGIN! 
-
-
+// из 8 не правильный ввод
+// в 8 теряется дробь
 
 #import "MNBCMainViewController.h"
 
@@ -33,7 +27,7 @@
     for(int i = (int)[self length] - 1; i >= 0; i--)
     {
         c = [self characterAtIndex:i];
-        if((c<'0')||(c>'7')) //Если пользователь не использует ввод в соответствующем интервале для восьмеричной базы, приложение выскакивает окно с ошибкой.
+        /*     if((c<'0')||(c>'7')) //Если пользователь не использует ввод в соответствующем интервале для восьмеричной базы, приложение выскакивает окно с ошибкой.
         {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ошибка ввода"
                                                                                       message:@"Пожалуйста, используйте соответствующие цифры!"
@@ -41,7 +35,7 @@
                                                                             cancelButtonTitle:@"GOT IT!"
                                                                             otherButtonTitles:nil];
             [alert show]; return 0;
-        }
+        }*/
         iResult += (c - '0') * iBase;
         iBase *= 8;
     }
@@ -52,12 +46,26 @@
 
 @implementation MNBCMainViewController
 
+NSMutableArray *myArray;
+
+
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return 0;
 }
-
+- (IBAction)histore:(id)sender {
+    NSString *message;
+    
+    message = [NSString stringWithFormat:@"%@", myArray];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"История"
+                                                    message:message
+                                                   delegate:nil
+                                          cancelButtonTitle:@"Ок"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
 
 - (IBAction)convert:(id)sender {
     
@@ -119,7 +127,7 @@
                                                               otherButtonTitles:nil];
                         [alert show];
                         sonuc = 0;
-                        numero = @"-";
+                        numero = @"0";
                     }
                     else {
                         continue;
@@ -137,7 +145,7 @@
                                                       otherButtonTitles:nil];
                 [alert show];
                 sonuc = 0;
-                numero = @"-";
+                numero = @"0";
                 
             } else {
                 
@@ -154,7 +162,7 @@
                     
                 case 0:
                     
-                    label.text = [NSString stringWithFormat:@"%@", numero];
+                    label.text = textField.text;
                     
                     break;
                     
@@ -168,12 +176,11 @@
                     
                     break;
                     
-                case 1:
-                    
+                case 1: // вот тут ошибка
+                {
                     label.text = [NSString stringWithFormat:@"%o", (int)sonuc];
-                    
                     break;
-                    
+                }
                 case 3:
                     
                     label.text = [NSString stringWithFormat:@"%x", (int)sonuc];
@@ -240,14 +247,7 @@
                 }
                 case 2:
                 {
-                    if (floater > 0) {
-                        
-                        label.text = [NSString stringWithFormat:@"%.3f", sonuc];
-                        
-                    } else {
-                        
-                        label.text = [NSString stringWithFormat:@"%d", number];
-                    }
+                    label.text = textField.text;
                     
                     break;
                 }
@@ -267,8 +267,8 @@
             
             break;
             
-        case 1:
-            
+        case 1: //FROM 8
+        {
             number = [textField.text octalIntValue];
             
             switch (segmentedcontrol2.selectedSegmentIndex) {
@@ -304,7 +304,7 @@
                 }
                 case 1:
                 {
-                    label.text = [NSString stringWithFormat:@"%o", number];
+                    label.text = textField.text;
                     break;
                 }
                 case 3:
@@ -317,7 +317,7 @@
             }
             
             break;
-            
+        }
         case 3:
         {
             
@@ -352,7 +352,8 @@
                 switch (segmentedcontrol2.selectedSegmentIndex) {
                     case 0:
                     {
-                        label.text = [self decimalToBinary:temp];
+                       // label.text = [self decimalToBinary:temp];
+                        label.text = [self decToBinary:temp];
                         break;
                     }
                     case 1:
@@ -392,6 +393,7 @@
         default:
             break;
     }
+    [myArray addObject:[NSString stringWithFormat:@"%@ -> %@",textField.text , label.text]];
     
     number = 0; counter = 0; b = 0; periods = 0; sonuc = 0;
 }
@@ -425,9 +427,21 @@
     return hexString;
 }
 
+-(NSString *)decToBinary:(NSUInteger)decInt
+{
+    NSLog(@"Я тут");
+    NSString *string = @"" ;
+    NSUInteger x = decInt ;
+    do {
+        string = [[NSString stringWithFormat: @"%lu", x&1] stringByAppendingString:string];
+    } while (x >>= 1);
+    return string;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    myArray = [[NSMutableArray alloc] init];
 }
 
 - (void)didReceiveMemoryWarning

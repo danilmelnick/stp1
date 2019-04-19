@@ -17,7 +17,6 @@
 		569A980817F71DEC00144B8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 569A980617F71DEC00144B8B /* Main.storyboard */; };
 		569A980B17F71DED00144B8B /* MightyNumericBaseConverter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 569A980917F71DEC00144B8B /* MightyNumericBaseConverter.xcdatamodeld */; };
 		569A980E17F71DED00144B8B /* MNBCMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 569A980D17F71DED00144B8B /* MNBCMainViewController.m */; };
-		569A981117F71DED00144B8B /* MNBCFlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 569A981017F71DED00144B8B /* MNBCFlipsideViewController.m */; };
 		569A981317F71DED00144B8B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 569A981217F71DED00144B8B /* Images.xcassets */; };
 		569A981A17F71DED00144B8B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569A981917F71DED00144B8B /* XCTest.framework */; };
 		569A981B17F71DED00144B8B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569A97F217F71DEC00144B8B /* Foundation.framework */; };
@@ -53,8 +52,6 @@
 		569A980A17F71DEC00144B8B /* MightyNumericBaseConverter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MightyNumericBaseConverter.xcdatamodel; sourceTree = "<group>"; };
 		569A980C17F71DED00144B8B /* MNBCMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNBCMainViewController.h; sourceTree = "<group>"; };
 		569A980D17F71DED00144B8B /* MNBCMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNBCMainViewController.m; sourceTree = "<group>"; };
-		569A980F17F71DED00144B8B /* MNBCFlipsideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNBCFlipsideViewController.h; sourceTree = "<group>"; };
-		569A981017F71DED00144B8B /* MNBCFlipsideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNBCFlipsideViewController.m; sourceTree = "<group>"; };
 		569A981217F71DED00144B8B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		569A981817F71DED00144B8B /* MightyNumericBaseConverterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MightyNumericBaseConverterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		569A981917F71DED00144B8B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -128,8 +125,6 @@
 				569A980617F71DEC00144B8B /* Main.storyboard */,
 				569A980C17F71DED00144B8B /* MNBCMainViewController.h */,
 				569A980D17F71DED00144B8B /* MNBCMainViewController.m */,
-				569A980F17F71DED00144B8B /* MNBCFlipsideViewController.h */,
-				569A981017F71DED00144B8B /* MNBCFlipsideViewController.m */,
 				569A981217F71DED00144B8B /* Images.xcassets */,
 				569A980917F71DEC00144B8B /* MightyNumericBaseConverter.xcdatamodeld */,
 				569A97FB17F71DEC00144B8B /* Supporting Files */,
@@ -268,7 +263,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				569A980B17F71DED00144B8B /* MightyNumericBaseConverter.xcdatamodeld in Sources */,
-				569A981117F71DED00144B8B /* MNBCFlipsideViewController.m in Sources */,
 				569A980517F71DEC00144B8B /* MNBCAppDelegate.m in Sources */,
 				569A980117F71DEC00144B8B /* main.m in Sources */,
 				569A980E17F71DED00144B8B /* MNBCMainViewController.m in Sources */,
